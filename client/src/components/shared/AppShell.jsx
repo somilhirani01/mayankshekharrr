@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import NotificationBell from './NotificationBell';
 
 function AppShell({ children }) {
   const { user, logout } = useAuth();
@@ -17,6 +18,7 @@ function AppShell({ children }) {
           ScopeLock
         </Link>
         <div className="topbar-actions">
+          <NotificationBell />
           <span>{user?.name}</span>
           <button type="button" className="btn btn-ghost" onClick={handleLogout}>
             Log out
