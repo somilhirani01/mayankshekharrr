@@ -1,6 +1,7 @@
 const Project = require('../models/Project');
 const ScopeItem = require('../models/ScopeItem');
 const ClientRequest = require('../models/ClientRequest');
+const ChangeOrder = require('../models/ChangeOrder');
 const Notification = require('../models/Notification');
 const AppError = require('../utils/AppError');
 const { classifyRequest } = require('../utils/matchEngine');
@@ -29,6 +30,11 @@ const getPortalProject = async (req, res) => {
     ...new Set(scopeItems.map((item) => item.categoryTag).filter(Boolean)),
   ].sort();
 
+  const pendingChangeOrders = await ChangeOrder.find({
+    projectId: project._id,
+    status: 'sent',
+  }).sort({ createdAt: -1 });
+
   res.json({
     project: {
       id: project._id,
@@ -39,6 +45,7 @@ const getPortalProject = async (req, res) => {
       totalHours: project.totalHours,
     },
     categoryTags,
+    pendingChangeOrders,
   });
 };
 
