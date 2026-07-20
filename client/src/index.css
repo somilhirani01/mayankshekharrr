@@ -603,8 +603,8 @@ p {
   gap: 0.15rem;
   margin-bottom: 1rem;
   padding: 0.35rem;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--black);
+  border: 1px solid var(--black);
   border-radius: 999px;
   width: fit-content;
   max-width: 100%;
@@ -626,7 +626,7 @@ p {
     width 0.35s var(--ease),
     opacity 0.2s var(--ease);
   pointer-events: none;
-  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.28);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
 }
 
 .tab-indicator-ready {
@@ -643,13 +643,13 @@ p {
   padding: 0.55rem 1.05rem;
   cursor: pointer;
   font-weight: 600;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.55);
   white-space: nowrap;
   transition: color 0.25s var(--ease);
 }
 
 .tab:hover {
-  color: var(--ink);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .tab-active {
