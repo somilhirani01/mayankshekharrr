@@ -60,12 +60,16 @@ function NotificationBell() {
 
   const markAllRead = async () => {
     const unread = notifications.filter((item) => !item.isRead);
-    await Promise.all(
-      unread.map((item) => api.put(`/api/notifications/${item._id}/read`))
-    );
-    setNotifications((prev) =>
-      prev.map((item) => ({ ...item, isRead: true }))
-    );
+    try {
+      await Promise.all(
+        unread.map((item) => api.put(`/api/notifications/${item._id}/read`))
+      );
+      setNotifications((prev) =>
+        prev.map((item) => ({ ...item, isRead: true }))
+      );
+    } catch (err) {
+      setError(getErrorMessage(err, 'Unable to mark notifications as read'));
+    }
   };
 
   return (
