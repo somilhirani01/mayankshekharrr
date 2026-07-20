@@ -54,7 +54,7 @@ function RequestForm({ token, categoryTags, onSubmitted }) {
           rows="5"
           value={requestText}
           onChange={(e) => setRequestText(e.target.value)}
-          placeholder="Describe what you need..."
+          placeholder="e.g. Please add a blog section to the homepage"
         />
         {errors.requestText && (
           <span className="field-error">{errors.requestText}</span>

@@ -11,6 +11,8 @@ function AppShell({ children }) {
     navigate('/login');
   };
 
+  const initial = (user?.name || 'U').trim().charAt(0).toUpperCase();
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -19,7 +21,12 @@ function AppShell({ children }) {
         </Link>
         <div className="topbar-actions">
           <NotificationBell />
-          <span>{user?.name}</span>
+          <div className="user-chip" title={user?.name || ''}>
+            <span className="user-avatar" aria-hidden="true">
+              {initial}
+            </span>
+            <span className="user-name">{user?.name}</span>
+          </div>
           <button type="button" className="btn btn-ghost" onClick={handleLogout}>
             Log out
           </button>

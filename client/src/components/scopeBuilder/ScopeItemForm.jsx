@@ -78,6 +78,7 @@ function ScopeItemForm({ initialValues, onSubmit, onCancel, submitLabel }) {
           id="scope-title"
           name="title"
           type="text"
+          placeholder="e.g. Homepage layout"
           value={form.title}
           onChange={updateField('title')}
         />
@@ -90,6 +91,7 @@ function ScopeItemForm({ initialValues, onSubmit, onCancel, submitLabel }) {
           id="scope-description"
           name="description"
           rows="3"
+          placeholder="e.g. Design and build the marketing homepage"
           value={form.description}
           onChange={updateField('description')}
         />
@@ -118,6 +120,7 @@ function ScopeItemForm({ initialValues, onSubmit, onCancel, submitLabel }) {
           type="number"
           min="0.01"
           step="0.01"
+          placeholder="e.g. 8"
           value={form.estimatedHours}
           onChange={updateField('estimatedHours')}
         />

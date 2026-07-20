@@ -113,6 +113,7 @@ function Dashboard() {
                 id="title"
                 name="title"
                 type="text"
+                placeholder="e.g. Website redesign"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -125,6 +126,7 @@ function Dashboard() {
                 id="clientName"
                 name="clientName"
                 type="text"
+                placeholder="e.g. Acme Corp"
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
               />
@@ -141,6 +143,7 @@ function Dashboard() {
                 type="number"
                 min="0.01"
                 step="0.01"
+                placeholder="e.g. 75"
                 value={hourlyRate}
                 onChange={(e) => setHourlyRate(e.target.value)}
               />

@@ -91,6 +91,7 @@ function Login() {
                 name="name"
                 type="text"
                 autoComplete="name"
+                placeholder="e.g. Alex Morgan"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -105,6 +106,7 @@ function Login() {
               name="email"
               type="email"
               autoComplete="email"
+              placeholder="e.g. you@studio.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -118,6 +120,7 @@ function Login() {
               name="password"
               type="password"
               autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+              placeholder="At least 6 characters"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
