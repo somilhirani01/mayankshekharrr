@@ -77,6 +77,7 @@ function NotificationBell() {
       <button
         type="button"
         className="btn btn-ghost notification-trigger"
+        aria-label="Notifications"
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => {
@@ -86,7 +87,29 @@ function NotificationBell() {
           }
         }}
       >
-        Notifications
+        <svg
+          className="bell-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 9a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10 20a2 2 0 0 0 4 0"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
         {unreadCount > 0 && (
           <span className="notification-count" aria-label={`${unreadCount} unread`}>
             {unreadCount}
