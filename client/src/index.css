@@ -485,8 +485,8 @@ p {
 }
 
 .status-active {
-  background: var(--black);
-  border-color: var(--black);
+  background: var(--green);
+  border-color: var(--green);
   color: #fff;
 }
 
