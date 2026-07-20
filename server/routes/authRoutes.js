@@ -1,16 +1,10 @@
 const express = require('express');
+const authController = require('../controllers/authController');
+const asyncHandler = require('../utils/asyncHandler');
+
 const router = express.Router();
 
-router.post('/register', (req, res) => {
-  res.status(501).json({
-    error: { code: 'NOT_IMPLEMENTED', message: 'Register not implemented yet' },
-  });
-});
-
-router.post('/login', (req, res) => {
-  res.status(501).json({
-    error: { code: 'NOT_IMPLEMENTED', message: 'Login not implemented yet' },
-  });
-});
+router.post('/register', asyncHandler(authController.register));
+router.post('/login', asyncHandler(authController.login));
 
 module.exports = router;
