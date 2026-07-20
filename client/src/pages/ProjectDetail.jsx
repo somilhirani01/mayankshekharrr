@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import api from '../services/api';
 import AppShell from '../components/shared/AppShell';
 import LoadingState from '../components/shared/LoadingState';
+import SlidingTabs from '../components/shared/SlidingTabs';
 import { getErrorMessage } from '../utils/errors';
 import {
   classificationLabel,
@@ -145,22 +146,15 @@ function ProjectDetail() {
 
           {actionError && <div className="form-error">{actionError}</div>}
 
-          <div className="tabs" role="tablist" aria-label="Project sections">
-            {TABS.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                role="tab"
-                aria-selected={tab === item.id}
-                className={`tab ${tab === item.id ? 'tab-active' : ''}`}
-                onClick={() => setTab(item.id)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+          <SlidingTabs
+            tabs={TABS}
+            activeId={tab}
+            onChange={setTab}
+            ariaLabel="Project sections"
+          />
 
-          <section className="panel">
+          <section className="panel tab-panel" key={tab}>
+            <div className="tab-slide">
             {tab === 'scope' && (
               <>
                 {scopeItems.length === 0 ? (
@@ -291,6 +285,7 @@ function ProjectDetail() {
                 )}
               </>
             )}
+            </div>
           </section>
         </>
       )}
