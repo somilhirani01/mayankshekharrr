@@ -478,6 +478,21 @@ p {
   box-shadow: 0 0 0 4px rgba(31, 111, 91, 0.15);
 }
 
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.checkbox-row input[type='checkbox'] {
+  width: auto;
+  margin-top: 0.2rem;
+}
+
+.checkbox-row label {
+  font-weight: 500;
+}
+
 @media (max-width: 760px) {
   .page-header {
     flex-direction: column;
