@@ -85,18 +85,29 @@ MongoDB Atlas
 
 Backend on Render
 
-1. Create a Web Service from this repo
-2. Root directory: server
-3. Build command: npm install
-4. Start command: npm start
-5. Set environment variables:
+Important: this repo is a monorepo. The API lives in the server folder.
 
-   PORT=10000
+1. Create a Web Service from this GitHub repo
+2. Set these exactly:
+
+   Root Directory: server
+   Runtime: Node
+   Build Command: npm install
+   Start Command: npm start
+
+   Do not set Build Command to only "npm" (that fails).
+
+3. Set environment variables:
+
    MONGODB_URI=<atlas connection string>
    JWT_SECRET=<long random secret>
    JWT_EXPIRY=7d
    CLIENT_ORIGIN=<your Vercel frontend URL>
    NODE_ENV=production
+
+   Do not set PORT manually. Render provides PORT automatically.
+
+4. Deploy / Manual Deploy -> Deploy latest commit
 
 Frontend on Vercel
 

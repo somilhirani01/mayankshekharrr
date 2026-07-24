@@ -2,6 +2,7 @@ services:
   - type: web
     name: scopelock-api
     runtime: node
+    plan: free
     rootDir: server
     buildCommand: npm install
     startCommand: npm start
@@ -16,5 +17,3 @@ services:
         generateValue: true
       - key: CLIENT_ORIGIN
         sync: false
-      - key: PORT
-        value: 10000
