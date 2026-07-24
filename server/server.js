@@ -31,14 +31,13 @@ app.use(
       if (allowedOrigins.includes(normalized)) {
         return callback(null, true);
       }
-      return callback(new Error(`Origin ${origin} not allowed by CORS`));
+      return callback(null, false);
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 204,
   })
 );
-app.options('*', cors());
 app.use(express.json());
 app.use(requestLogger);
 
