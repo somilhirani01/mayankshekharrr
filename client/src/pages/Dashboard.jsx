@@ -1,17 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import api from '../services/api';
 import AppShell from '../components/shared/AppShell';
 import LoadingState from '../components/shared/LoadingState';
+import ProjectRow from '../components/dashboard/ProjectRow';
 import { getErrorMessage } from '../utils/errors';
-
-function formatPrice(value) {
-  const amount = Number(value) || 0;
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  }).format(amount);
-}
 
 function Dashboard() {
   const [projects, setProjects] = useState([]);
@@ -170,25 +162,7 @@ function Dashboard() {
         {!loading && !loadError && projects.length > 0 && (
           <div className="project-list">
             {projects.map((project) => (
-              <Link
-                key={project._id}
-                to={`/projects/${project._id}`}
-                className="project-row"
-              >
-                <div>
-                  <h3>{project.title}</h3>
-                  <p className="meta">{project.clientName}</p>
-                </div>
-                <div className="meta">Rate {formatPrice(project.hourlyRate)}/hr</div>
-                <span
-                  className={`status-pill ${
-                    project.status === 'paused' ? 'status-paused' : 'status-active'
-                  }`}
-                >
-                  {project.status}
-                </span>
-                <div className="price">{formatPrice(project.totalPrice)}</div>
-              </Link>
+              <ProjectRow key={project._id} project={project} />
             ))}
           </div>
         )}

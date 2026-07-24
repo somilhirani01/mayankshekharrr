@@ -4,6 +4,7 @@ import api from '../services/api';
 import AppShell from '../components/shared/AppShell';
 import LoadingState from '../components/shared/LoadingState';
 import SlidingTabs from '../components/shared/SlidingTabs';
+import ChangeOrderSummary from '../components/changeOrders/ChangeOrderSummary';
 import { getErrorMessage } from '../utils/errors';
 import {
   classificationLabel,
@@ -237,23 +238,11 @@ function ProjectDetail() {
                 ) : (
                   <div className="data-list">
                     {changeOrders.map((order) => (
-                      <article key={order._id} className="data-row">
-                        <div>
-                          <h3>{order.description}</h3>
-                          <p className="meta">
-                            {order.status}
-                            {order.isBlocking ? ' · blocking' : ''} ·{' '}
-                            {formatHours(order.estimatedHours)} ·{' '}
-                            {formatPrice(order.price)}
-                          </p>
-                        </div>
-                        <Link
-                          to={`/change-orders/${order._id}`}
-                          className="btn btn-ghost"
-                        >
-                          Open
-                        </Link>
-                      </article>
+                      <ChangeOrderSummary
+                        key={order._id}
+                        changeOrder={order}
+                        hourlyRate={project.hourlyRate}
+                      />
                     ))}
                   </div>
                 )}

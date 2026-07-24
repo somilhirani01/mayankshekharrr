@@ -58,7 +58,7 @@ Prerequisites
    npm run seed
 
    Demo login:
-   email: demo@scopelock.app
+   email: demo@example.com
    password: demo1234
 
    The seed script also prints the client portal path.
@@ -177,4 +177,4 @@ Out of scope for this version
 - Payment collection
 - Email or SMS delivery
 - Client accounts
-- AI-based classification
+- ML-based request classification

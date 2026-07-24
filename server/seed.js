@@ -11,7 +11,7 @@ const ClientRequest = require('./models/ClientRequest');
 const ChangeOrder = require('./models/ChangeOrder');
 const Notification = require('./models/Notification');
 
-const DEMO_EMAIL = 'demo@scopelock.app';
+const DEMO_EMAIL = 'demo@example.com';
 const DEMO_PASSWORD = 'demo1234';
 
 const seed = async () => {
@@ -28,7 +28,7 @@ const seed = async () => {
 
   const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   const user = await User.create({
-    name: 'Demo Freelancer',
+    name: 'Sam Rivera',
     email: DEMO_EMAIL,
     passwordHash,
   });
@@ -92,8 +92,6 @@ seed().catch(async (err) => {
   console.error('Seed failed:', err.message);
   try {
     await mongoose.connection.close();
-  } catch (closeErr) {
-    // ignore close errors during failure cleanup
-  }
+  } catch (closeErr) {}
   process.exit(1);
 });
